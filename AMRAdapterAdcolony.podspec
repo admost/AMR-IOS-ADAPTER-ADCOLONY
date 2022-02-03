@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AMRAdapterAdcolony'
-  s.version          = '4.7.2.3'
+  s.version          = '4.7.2.4'
   s.license          = { :type => 'Copyright', :text => <<-LICENSE
 														Copyright 2016
 														Admost Mediation Limited.
@@ -18,7 +18,12 @@ Pod::Spec.new do |s|
   s.platform 			= :ios
   s.ios.deployment_target = '9.0'
   s.vendored_frameworks = 'AMRAdapterAdcolony/Libs/AMRAdapterAdcolony.xcframework'
-  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'armv7 arm64 x86_64' }
+  s.pod_target_xcconfig = { 
+    'OTHER_LDFLAGS' => '-ObjC -lc++',
+    "VALID_ARCHS": "arm64 armv7 x86_64",
+    'VALID_ARCHS[sdk=iphoneos*]' => 'armv7 arm64',
+    'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64 arm64'
+  }
   s.dependency 'AMRSDK', '~> 1.5.6'
   s.dependency 'AdColony', '4.7.2'
 end
