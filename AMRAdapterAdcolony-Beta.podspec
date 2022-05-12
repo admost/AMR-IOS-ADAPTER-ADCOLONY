@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AMRAdapterAdcolony-Beta'
-  s.version          = '4.8.0.0'
+  s.version          = '4.8.0.1'
   s.license          = { :type => 'Copyright', :text => <<-LICENSE
 														Copyright 2016
 														Admost Mediation Limited.
